@@ -16,22 +16,23 @@
   <meta name="author" content="waymingz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="​ python 列表List转换成树形结构 原始数据：list 中嵌套 dict 的数据格式 转换结果：数结构的数据，children 字段嵌套的形式，适用于前端树形结构的渲染  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+    <meta name="description" content="Flask+ nginx + gunicorn + supervisor 部署项目编辑manage.py 文件 作为启动文件来管理Flask app123456789101112131415from flask_script import Managerfrom flask_migrate import Migrate, MigrateCommandapp &#x3D; Flask(__name__)man">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 列表List转换成树形结构">
-<meta property="og:url" content="https://waym1ng.github.io/2022/06/23/python-%E5%88%97%E8%A1%A8List%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:title" content="Flask+ nginx + gunicorn + supervisor 部署项目">
+<meta property="og:url" content="https://waym1ng.github.io/2022/06/22/Flask-nginx-gunicorn-supervisor-%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="MingMing&#39;blog">
-<meta property="og:description" content="​ python 列表List转换成树形结构 原始数据：list 中嵌套 dict 的数据格式 转换结果：数结构的数据，children 字段嵌套的形式，适用于前端树形结构的渲染  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859">
+<meta property="og:description" content="Flask+ nginx + gunicorn + supervisor 部署项目编辑manage.py 文件 作为启动文件来管理Flask app123456789101112131415from flask_script import Managerfrom flask_migrate import Migrate, MigrateCommandapp &#x3D; Flask(__name__)man">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-23T07:49:51.000Z">
-<meta property="article:modified_time" content="2022-06-23T07:55:49.516Z">
+<meta property="article:published_time" content="2022-06-22T11:59:19.000Z">
+<meta property="article:modified_time" content="2022-06-27T02:17:21.669Z">
 <meta property="article:author" content="waymingz">
-<meta property="article:tag" content="基础">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>python 列表List转换成树形结构 - MingMing&#39;blog</title>
+  <title>Flask+ nginx + gunicorn + supervisor 部署项目 - MingMing&#39;blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="python 列表List转换成树形结构"></span>
+            <span id="subtitle" data-typed-text="Flask+ nginx + gunicorn + supervisor 部署项目"></span>
           
         </div>
 
@@ -224,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-23 15:49" pubdate>
-          2022年6月23日 下午
+        <time datetime="2022-06-22 19:59" pubdate>
+          2022年6月22日 晚上
         </time>
       </span>
     
@@ -236,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          953 字
         
       </span>
     
@@ -247,7 +248,7 @@
         
         
         
-          20 分钟
+          8 分钟
         
       </span>
     
@@ -285,20 +286,24 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">python 列表List转换成树形结构</h1>
+            <h1 style="display: none">Flask+ nginx + gunicorn + supervisor 部署项目</h1>
             
             
               <div class="markdown-body">
                 
-                <p>​</p>
-<h3 id="python-列表List转换成树形结构"><a href="#python-列表List转换成树形结构" class="headerlink" title="python 列表List转换成树形结构"></a>python 列表List转换成树形结构</h3><ul>
-<li>原始数据：list 中嵌套 dict 的数据格式</li>
-<li>转换结果：数结构的数据，children 字段嵌套的形式，适用于前端树形结构的渲染</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">list_to_tree</span>(<span class="hljs-params">data</span>):<br>    root = []<br>    node = []<br><br>    <span class="hljs-comment"># 初始化数据，获取根节点和其他子节点list</span><br>    <span class="hljs-keyword">for</span> d <span class="hljs-keyword">in</span> data:<br>        d[<span class="hljs-string">&quot;choice&quot;</span>] = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">if</span> d.get(<span class="hljs-string">&quot;parent_id&quot;</span>) == <span class="hljs-number">0</span>:<br>            root.append(d)<br>        <span class="hljs-keyword">else</span>:<br>            node.append(d)<br>    <span class="hljs-comment"># print(&quot;root----&quot;,root)</span><br>    <span class="hljs-comment"># print(&quot;node----&quot;,node)</span><br>    <span class="hljs-comment"># 查找子节点</span><br>    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> root:<br>        add_node(p, node)<br><br>    <span class="hljs-comment"># 无子节点</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(root) == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> node<br><br>    <span class="hljs-keyword">return</span> root<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add_node</span>(<span class="hljs-params">p, node</span>):<br>    <span class="hljs-comment"># 子节点list</span><br>    p[<span class="hljs-string">&quot;children&quot;</span>] = []<br>    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> node:<br>        <span class="hljs-keyword">if</span> n.get(<span class="hljs-string">&quot;parent_id&quot;</span>) == p.get(<span class="hljs-string">&quot;theme_id&quot;</span>):<br>            p[<span class="hljs-string">&quot;children&quot;</span>].append(n)<br><br>    <span class="hljs-comment"># 递归子节点，查找子节点的节点</span><br>    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> p[<span class="hljs-string">&quot;children&quot;</span>]:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> t.get(<span class="hljs-string">&quot;children&quot;</span>):<br>            t[<span class="hljs-string">&quot;children&quot;</span>] = []<br>        t[<span class="hljs-string">&quot;children&quot;</span>].append(add_node(t, node))<br><br>    <span class="hljs-comment"># 退出递归的条件</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(p[<span class="hljs-string">&quot;children&quot;</span>]) == <span class="hljs-number">0</span>:<br>        p[<span class="hljs-string">&quot;choice&quot;</span>] = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>  data_list = [&#123;<span class="hljs-string">&#x27;parent_id&#x27;</span>: <span class="hljs-number">10023</span>, <span class="hljs-string">&#x27;theme_id&#x27;</span>: <span class="hljs-number">10024</span>, <span class="hljs-string">&#x27;theme_name&#x27;</span>: <span class="hljs-string">&#x27;英语三级&#x27;</span>&#125;,<br>               &#123;<span class="hljs-string">&#x27;parent_id&#x27;</span>: <span class="hljs-number">10022</span>, <span class="hljs-string">&#x27;theme_id&#x27;</span>: <span class="hljs-number">10023</span>, <span class="hljs-string">&#x27;theme_name&#x27;</span>: <span class="hljs-string">&#x27;英语二级&#x27;</span>&#125;,<br>               &#123;<span class="hljs-string">&#x27;parent_id&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;theme_id&#x27;</span>: <span class="hljs-number">10025</span>, <span class="hljs-string">&#x27;theme_name&#x27;</span>: <span class="hljs-string">&#x27;语文一级&#x27;</span>&#125;,<br>               &#123;<span class="hljs-string">&#x27;parent_id&#x27;</span>: <span class="hljs-number">10025</span>, <span class="hljs-string">&#x27;theme_id&#x27;</span>: <span class="hljs-number">10026</span>, <span class="hljs-string">&#x27;theme_name&#x27;</span>: <span class="hljs-string">&#x27;语文二级&#x27;</span>&#125;,<br>               &#123;<span class="hljs-string">&#x27;parent_id&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;theme_id&#x27;</span>: <span class="hljs-number">10022</span>, <span class="hljs-string">&#x27;theme_name&#x27;</span>: <span class="hljs-string">&#x27;英语一级&#x27;</span>&#125;]<br>  data_tree = list_to_tree(data_list)<br>  <span class="hljs-built_in">print</span>(data_tree)<br>  <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">  结果如下：</span><br><span class="hljs-string">  [</span><br><span class="hljs-string">  &#123;</span><br><span class="hljs-string">    &quot;parent_id&quot;: 0,</span><br><span class="hljs-string">    &quot;theme_id&quot;: 10025,</span><br><span class="hljs-string">    &quot;theme_name&quot;: &quot;语文一级&quot;,</span><br><span class="hljs-string">    &quot;choice&quot;: 0,</span><br><span class="hljs-string">    &quot;children&quot;: [</span><br><span class="hljs-string">      &#123;</span><br><span class="hljs-string">        &quot;parent_id&quot;: 10025,</span><br><span class="hljs-string">        &quot;theme_id&quot;: 10026,</span><br><span class="hljs-string">        &quot;theme_name&quot;: &quot;语文二级&quot;,</span><br><span class="hljs-string">        &quot;choice&quot;: 1,</span><br><span class="hljs-string">        &quot;children&quot;: []</span><br><span class="hljs-string">      &#125;</span><br><span class="hljs-string">    ]</span><br><span class="hljs-string">  &#125;,</span><br><span class="hljs-string">  &#123;</span><br><span class="hljs-string">    &quot;parent_id&quot;: 0,</span><br><span class="hljs-string">    &quot;theme_id&quot;: 10022,</span><br><span class="hljs-string">    &quot;theme_name&quot;: &quot;英语一级&quot;,</span><br><span class="hljs-string">    &quot;choice&quot;: 0,</span><br><span class="hljs-string">    &quot;children&quot;: [</span><br><span class="hljs-string">      &#123;</span><br><span class="hljs-string">        &quot;parent_id&quot;: 10022,</span><br><span class="hljs-string">        &quot;theme_id&quot;: 10023,</span><br><span class="hljs-string">        &quot;theme_name&quot;: &quot;英语二级&quot;,</span><br><span class="hljs-string">        &quot;choice&quot;: 0,</span><br><span class="hljs-string">        &quot;children&quot;: [</span><br><span class="hljs-string">          &#123;</span><br><span class="hljs-string">            &quot;parent_id&quot;: 10023,</span><br><span class="hljs-string">            &quot;theme_id&quot;: 10024,</span><br><span class="hljs-string">            &quot;theme_name&quot;: &quot;英语三级&quot;,</span><br><span class="hljs-string">            &quot;choice&quot;: 1,</span><br><span class="hljs-string">            &quot;children&quot;: []</span><br><span class="hljs-string">          &#125;</span><br><span class="hljs-string">        ]</span><br><span class="hljs-string">      &#125;</span><br><span class="hljs-string">    ]</span><br><span class="hljs-string">  &#125;</span><br><span class="hljs-string">  ]</span><br></code></pre></td></tr></table></figure>
+                <h3 id="Flask-nginx-gunicorn-supervisor-部署项目"><a href="#Flask-nginx-gunicorn-supervisor-部署项目" class="headerlink" title="Flask+ nginx + gunicorn + supervisor 部署项目"></a>Flask+ nginx + gunicorn + supervisor 部署项目</h3><h5 id="编辑manage-py-文件-作为启动文件来管理Flask-app"><a href="#编辑manage-py-文件-作为启动文件来管理Flask-app" class="headerlink" title="编辑manage.py 文件 作为启动文件来管理Flask app"></a>编辑manage.py 文件 作为启动文件来管理Flask app</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask_script <span class="hljs-keyword">import</span> Manager<br><span class="hljs-keyword">from</span> flask_migrate <span class="hljs-keyword">import</span> Migrate, MigrateCommand<br><br>app = Flask(__name__)<br>manager = Manager(app)<br><span class="hljs-comment"># 数据库迁移初始化</span><br>Migrate(app, db)<br><span class="hljs-comment"># 添加迁移命令</span><br>manager.add_command(<span class="hljs-string">&quot;db&quot;</span>, MigrateCommand)<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-comment"># 使用manager对象启动flask项目，代替app.run()</span><br>    manager.run()<br><br></code></pre></td></tr></table></figure>
 
-<p>‘’’</p>
-<p>​</p>
+<h5 id="在supervisor-conf-文件中增加-以下program"><a href="#在supervisor-conf-文件中增加-以下program" class="headerlink" title="在supervisor.conf 文件中增加 以下program"></a>在supervisor.conf 文件中增加 以下program</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">[program:projects]<br>command=/usr/local/<span class="hljs-built_in">bin</span>/gunicorn -w <span class="hljs-number">4</span> -b <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">2020</span> -k gevent manage:app<br>directory=/home/zzz/projects/<br>autostart=true<br>redirect_stderr=true<br>stdout_logfile=/home/server_log/projects.log<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>directory  这里填写项目的路径</p>
+</blockquote>
+<p>如果没有写manage.py文件的话 command中 后面也可以直接写创建了 flask app 的文件<br>即 初始化了这句话的文件 app &#x3D; Flask(<strong>name</strong>)</p>
+<h4 id="这是gunicorn-的常用参数"><a href="#这是gunicorn-的常用参数" class="headerlink" title="这是gunicorn 的常用参数"></a>这是gunicorn 的常用参数</h4><blockquote>
+<p>-w: 指定worker的数量（根据实际情况设定）<br>-b：指定绑定的地址和端口号<br>-k: 指定worker-class模式，默认为sync，这里用gevent使之变为异步协程，提高性能。<br>  最后指定app的位置。</p>
+</blockquote>
+<h4 id="nginx的简单配置"><a href="#nginx的简单配置" class="headerlink" title="nginx的简单配置"></a>nginx的简单配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">server &#123;<br>    listen <span class="hljs-number">80</span>(监听的端口);<br>    server_name ip地址或者域名;<br>    <br>    location / &#123;<br>  		proxy_pass http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">2020</span>(转发至的端口);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>nginx 的详细配置可以参考：</strong><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40036754/article/details/102463099">nginx 详解</a></p>
 
                 
               </div>
@@ -332,7 +337,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%9F%BA%E7%A1%80/">#基础</a>
+        <a href="/tags/flask/">#flask</a>
+      
+        <a href="/tags/nginx/">#nginx</a>
       
     </div>
   
@@ -344,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>python 列表List转换成树形结构</div>
-      <div>https://waym1ng.github.io/2022/06/23/python-列表List转换成树形结构/</div>
+      <div>Flask+ nginx + gunicorn + supervisor 部署项目</div>
+      <div>https://waym1ng.github.io/2022/06/22/Flask-nginx-gunicorn-supervisor-部署项目/</div>
     </div>
     <div class="license-meta">
       
@@ -357,7 +364,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月23日</div>
+          <div>2022年6月22日</div>
         </div>
       
       
@@ -387,9 +394,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/23/Flask-nginx-gunicorn-supervisor-%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/" title="Flask+ nginx + gunicorn + supervisor 部署项目">
+                      <a href="/2022/06/23/Python%20SQLAlchemy%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%20models%20%E6%96%87%E4%BB%B6/" title="Python SQLAlchemy 自动生成模型 models 文件">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Flask+ nginx + gunicorn + supervisor 部署项目</span>
+                        <span class="hidden-mobile">Python SQLAlchemy 自动生成模型 models 文件</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -397,8 +404,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/23/%E7%94%A8python-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4-%E5%B9%B4-%E6%9C%88-%E6%97%A5-%E6%97%B6-%E5%88%86-%E7%A7%92-%EF%BC%8C%E5%B9%B6%E4%B8%94%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E4%B8%8B%E4%B8%80%E7%A7%92/" title="用python 获取当前时间(年-月-日 时:分:秒)，并且返回当前时间的下一秒">
-                        <span class="hidden-mobile">用python 获取当前时间(年-月-日 时:分:秒)，并且返回当前时间的下一秒</span>
+                      <a href="/2022/06/20/python-%E5%88%97%E8%A1%A8List%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/" title="python 列表List转换成树形结构">
+                        <span class="hidden-mobile">python 列表List转换成树形结构</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

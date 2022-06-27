@@ -16,23 +16,24 @@
   <meta name="author" content="waymingz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Flask+ nginx + gunicorn + supervisor 部署项目编辑manage.py 文件 作为启动文件来管理Flask app123456789101112131415from flask_script import Managerfrom flask_migrate import Migrate, MigrateCommandapp &#x3D; Flask(__name__)man">
+    <meta name="description" content="用pandas生成excel 当我们有特殊的需求时，比如要修改excel的行宽列宽，还有字体样式等等  需求示例 代码实现123456789101112131415161718192021222324252627282930313233343536# -*- coding: utf-8 -*-import pandas as pdfrom  datetime import datetime, ti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flask+ nginx + gunicorn + supervisor 部署项目">
-<meta property="og:url" content="https://waym1ng.github.io/2022/06/23/Flask-nginx-gunicorn-supervisor-%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:title" content="用pandas生成excel文件示例，并调整excel的格式或样式">
+<meta property="og:url" content="https://waym1ng.github.io/2022/06/27/%E7%94%A8pandas%E7%94%9F%E6%88%90excel%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%EF%BC%8C%E5%B9%B6%E8%B0%83%E6%95%B4excel%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%88%96%E6%A0%B7%E5%BC%8F/index.html">
 <meta property="og:site_name" content="MingMing&#39;blog">
-<meta property="og:description" content="Flask+ nginx + gunicorn + supervisor 部署项目编辑manage.py 文件 作为启动文件来管理Flask app123456789101112131415from flask_script import Managerfrom flask_migrate import Migrate, MigrateCommandapp &#x3D; Flask(__name__)man">
+<meta property="og:description" content="用pandas生成excel 当我们有特殊的需求时，比如要修改excel的行宽列宽，还有字体样式等等  需求示例 代码实现123456789101112131415161718192021222324252627282930313233343536# -*- coding: utf-8 -*-import pandas as pdfrom  datetime import datetime, ti">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-23T07:59:19.000Z">
-<meta property="article:modified_time" content="2022-06-23T08:00:41.205Z">
+<meta property="og:image" content="https://waym1ng.github.io/images/ex.png">
+<meta property="article:published_time" content="2022-06-27T01:15:30.000Z">
+<meta property="article:modified_time" content="2022-06-27T03:17:40.630Z">
 <meta property="article:author" content="waymingz">
-<meta property="article:tag" content="flask">
-<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="pandas">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://waym1ng.github.io/images/ex.png">
   
   
   
-  <title>Flask+ nginx + gunicorn + supervisor 部署项目 - MingMing&#39;blog</title>
+  <title>用pandas生成excel文件示例，并调整excel的格式或样式 - MingMing&#39;blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Flask+ nginx + gunicorn + supervisor 部署项目"></span>
+            <span id="subtitle" data-typed-text="用pandas生成excel文件示例，并调整excel的格式或样式"></span>
           
         </div>
 
@@ -225,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-23 15:59" pubdate>
-          2022年6月23日 下午
+        <time datetime="2022-06-27 09:15" pubdate>
+          2022年6月27日 上午
         </time>
       </span>
     
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          953 字
+          1.8k 字
         
       </span>
     
@@ -248,7 +249,7 @@
         
         
         
-          8 分钟
+          16 分钟
         
       </span>
     
@@ -286,25 +287,16 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Flask+ nginx + gunicorn + supervisor 部署项目</h1>
+            <h1 style="display: none">用pandas生成excel文件示例，并调整excel的格式或样式</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="Flask-nginx-gunicorn-supervisor-部署项目"><a href="#Flask-nginx-gunicorn-supervisor-部署项目" class="headerlink" title="Flask+ nginx + gunicorn + supervisor 部署项目"></a>Flask+ nginx + gunicorn + supervisor 部署项目</h3><h5 id="编辑manage-py-文件-作为启动文件来管理Flask-app"><a href="#编辑manage-py-文件-作为启动文件来管理Flask-app" class="headerlink" title="编辑manage.py 文件 作为启动文件来管理Flask app"></a>编辑manage.py 文件 作为启动文件来管理Flask app</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask_script <span class="hljs-keyword">import</span> Manager<br><span class="hljs-keyword">from</span> flask_migrate <span class="hljs-keyword">import</span> Migrate, MigrateCommand<br><br>app = Flask(__name__)<br>manager = Manager(app)<br><span class="hljs-comment"># 数据库迁移初始化</span><br>Migrate(app, db)<br><span class="hljs-comment"># 添加迁移命令</span><br>manager.add_command(<span class="hljs-string">&quot;db&quot;</span>, MigrateCommand)<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-comment"># 使用manager对象启动flask项目，代替app.run()</span><br>    manager.run()<br><br></code></pre></td></tr></table></figure>
-
-<h5 id="在supervisor-conf-文件中增加-以下program"><a href="#在supervisor-conf-文件中增加-以下program" class="headerlink" title="在supervisor.conf 文件中增加 以下program"></a>在supervisor.conf 文件中增加 以下program</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">[program:projects]<br>command=/usr/local/<span class="hljs-built_in">bin</span>/gunicorn -w <span class="hljs-number">4</span> -b <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.0</span>:<span class="hljs-number">2020</span> -k gevent manage:app<br>directory=/home/zzz/projects/<br>autostart=true<br>redirect_stderr=true<br>stdout_logfile=/home/server_log/projects.log<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>directory  这里填写项目的路径</p>
-</blockquote>
-<p>如果没有写manage.py文件的话 command中 后面也可以直接写创建了 flask app 的文件<br>即 初始化了这句话的文件 app &#x3D; Flask(<strong>name</strong>)</p>
-<h4 id="这是gunicorn-的常用参数"><a href="#这是gunicorn-的常用参数" class="headerlink" title="这是gunicorn 的常用参数"></a>这是gunicorn 的常用参数</h4><blockquote>
-<p>-w: 指定worker的数量（根据实际情况设定）<br>-b：指定绑定的地址和端口号<br>-k: 指定worker-class模式，默认为sync，这里用gevent使之变为异步协程，提高性能。<br>  最后指定app的位置。</p>
-</blockquote>
-<h4 id="nginx的简单配置"><a href="#nginx的简单配置" class="headerlink" title="nginx的简单配置"></a>nginx的简单配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">server &#123;<br>    listen <span class="hljs-number">80</span>(监听的端口);<br>    server_name ip地址或者域名;<br>    <br>    location / &#123;<br>  		proxy_pass http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">2020</span>(转发至的端口);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><strong>nginx 的详细配置可以参考：</strong><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40036754/article/details/102463099">nginx 详解</a></p>
-
+                <h2 id="用pandas生成excel"><a href="#用pandas生成excel" class="headerlink" title="用pandas生成excel"></a>用pandas生成excel</h2><ul>
+<li>当我们有特殊的需求时，比如要修改excel的行宽列宽，还有字体样式等等</li>
+</ul>
+<h3 id="需求示例"><a href="#需求示例" class="headerlink" title="需求示例"></a>需求示例</h3><p><img src="/images/ex.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">from</span>  datetime <span class="hljs-keyword">import</span> datetime, timedelta<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">modify_excel_format</span>(<span class="hljs-params">excel_data, writer, df</span>):<br>    <span class="hljs-comment"># ----------调整excel格式 ---------------</span><br>    workbook = writer.book<br>    fmt = workbook.add_format(&#123;<span class="hljs-string">&quot;font_name&quot;</span>: <span class="hljs-string">u&quot;宋体&quot;</span>&#125;)<br>    col_fmt = workbook.add_format(<br>        &#123;<span class="hljs-string">&#x27;bold&#x27;</span>: <span class="hljs-literal">True</span>, <span class="hljs-string">&#x27;font_size&#x27;</span>: <span class="hljs-number">11</span>, <span class="hljs-string">&#x27;font_name&#x27;</span>: <span class="hljs-string">u&#x27;宋体&#x27;</span>, <span class="hljs-string">&#x27;border&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;bg_color&#x27;</span>: <span class="hljs-string">&#x27;#0265CB&#x27;</span>,<span class="hljs-string">&#x27;font_color&#x27;</span>: <span class="hljs-string">&#x27;white&#x27;</span>,<br>         <span class="hljs-string">&#x27;valign&#x27;</span>: <span class="hljs-string">&#x27;vcenter&#x27;</span>, <span class="hljs-string">&#x27;align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>&#125;)<br>    detail_fmt = workbook.add_format(<br>        &#123;<span class="hljs-string">&quot;font_name&quot;</span>: <span class="hljs-string">u&quot;宋体&quot;</span>, <span class="hljs-string">&#x27;border&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;valign&#x27;</span>: <span class="hljs-string">&#x27;vcenter&#x27;</span>, <span class="hljs-string">&#x27;align&#x27;</span>: <span class="hljs-string">&#x27;center&#x27;</span>,<span class="hljs-string">&#x27;font_size&#x27;</span>: <span class="hljs-number">11</span>, <span class="hljs-string">&#x27;text_wrap&#x27;</span>: <span class="hljs-literal">True</span>&#125;)<br>    worksheet1 = writer.sheets[<span class="hljs-string">&#x27;Sheet1&#x27;</span>]<br>    <span class="hljs-keyword">for</span> col_num, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(df.columns.values):<br>        worksheet1.write(<span class="hljs-number">0</span>, col_num, value, col_fmt)<br>    <span class="hljs-comment"># 设置列宽行宽</span><br>    worksheet1.set_column(<span class="hljs-string">&#x27;A:F&#x27;</span>, <span class="hljs-number">20</span>, fmt)<br>    worksheet1.set_row(<span class="hljs-number">0</span>, <span class="hljs-number">30</span>, fmt)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(excel_data)+<span class="hljs-number">1</span>):<br>        worksheet1.set_row(i, <span class="hljs-number">27</span>, detail_fmt)<br><br><br>excel_data = []<br>columns = [<span class="hljs-string">&quot;用户&quot;</span>, <span class="hljs-string">&quot;名字&quot;</span>, <span class="hljs-string">&quot;标题&quot;</span>, <span class="hljs-string">&quot;类&quot;</span>, <span class="hljs-string">&quot;测试&quot;</span>, <span class="hljs-string">&quot;语言&quot;</span>]<br>tmp = [<span class="hljs-string">&quot;张同学&quot;</span>, <span class="hljs-string">&quot;张同学&quot;</span>, <span class="hljs-string">&quot;pd 生成excel&quot;</span>, <span class="hljs-string">&quot;pandas&quot;</span>, <span class="hljs-string">&quot;pd&quot;</span>, <span class="hljs-string">&quot;python&quot;</span>]<br>excel_data.append(tmp)<br>df = pd.DataFrame(data=excel_data, columns=columns)<br>t = datetime.now().date() - timedelta(days=<span class="hljs-number">1</span>)<br><span class="hljs-keyword">with</span> pd.ExcelWriter(path=<span class="hljs-string">&#x27;demo-%d%02d%02d.xlsx&#x27;</span> % (t.year, t.month, t.day), engine=<span class="hljs-string">&quot;xlsxwriter&quot;</span>) <span class="hljs-keyword">as</span> writer:<br>    df.to_excel(writer, sheet_name=<span class="hljs-string">&#x27;Sheet1&#x27;</span>, encoding=<span class="hljs-string">&#x27;utf8&#x27;</span>, header=<span class="hljs-literal">False</span>, index=<span class="hljs-literal">False</span>, startcol=<span class="hljs-number">0</span>, startrow=<span class="hljs-number">1</span>)<br>    modify_excel_format(excel_data, writer, df)<br>    writer.save()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;ok!&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -337,9 +329,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/flask/">#flask</a>
-      
-        <a href="/tags/nginx/">#nginx</a>
+        <a href="/tags/pandas/">#pandas</a>
       
     </div>
   
@@ -351,8 +341,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Flask+ nginx + gunicorn + supervisor 部署项目</div>
-      <div>https://waym1ng.github.io/2022/06/23/Flask-nginx-gunicorn-supervisor-部署项目/</div>
+      <div>用pandas生成excel文件示例，并调整excel的格式或样式</div>
+      <div>https://waym1ng.github.io/2022/06/27/用pandas生成excel文件示例，并调整excel的格式或样式/</div>
     </div>
     <div class="license-meta">
       
@@ -364,7 +354,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月23日</div>
+          <div>2022年6月27日</div>
         </div>
       
       
@@ -394,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/06/23/Python%20SQLAlchemy%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%20models%20%E6%96%87%E4%BB%B6/" title="Python SQLAlchemy 自动生成模型 models 文件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Python SQLAlchemy 自动生成模型 models 文件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/23/python-%E5%88%97%E8%A1%A8List%E8%BD%AC%E6%8D%A2%E6%88%90%E6%A0%91%E5%BD%A2%E7%BB%93%E6%9E%84/" title="python 列表List转换成树形结构">
-                        <span class="hidden-mobile">python 列表List转换成树形结构</span>
+                      <a href="/2022/06/23/%E7%94%A8python-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4-%E5%B9%B4-%E6%9C%88-%E6%97%A5-%E6%97%B6-%E5%88%86-%E7%A7%92-%EF%BC%8C%E5%B9%B6%E4%B8%94%E8%BF%94%E5%9B%9E%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E7%9A%84%E4%B8%8B%E4%B8%80%E7%A7%92/" title="用python 获取当前时间(年-月-日 时:分:秒)，并且返回当前时间的下一秒">
+                        <span class="hidden-mobile">用python 获取当前时间(年-月-日 时:分:秒)，并且返回当前时间的下一秒</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
