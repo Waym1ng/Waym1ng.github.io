@@ -240,13 +240,74 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/06/27/%E7%94%A8pandas%E7%94%9F%E6%88%90excel%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%EF%BC%8C%E5%B9%B6%E8%B0%83%E6%95%B4excel%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%88%96%E6%A0%B7%E5%BC%8F/" target="_self">
+        <a href="/2022/06/26/pandas-to-excel-%E5%86%99%E5%85%A5-excel-%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5-%E8%A6%86%E7%9B%96-%E6%96%B0%E5%A2%9E-%E8%BF%BD%E5%8A%A0-%E5%AF%B9%E9%BD%90/" target="_self">
+          pandas to_excel() 写入 excel 的几种情况(覆盖,新增,追加,对齐)
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/26/pandas-to-excel-%E5%86%99%E5%85%A5-excel-%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5-%E8%A6%86%E7%9B%96-%E6%96%B0%E5%A2%9E-%E8%BF%BD%E5%8A%A0-%E5%AF%B9%E9%BD%90/" target="_self">
+        <div>
+          pandas to_excel() 写入 excel 的几种情况(覆盖,新增,追加,对齐)1234# 以下代码默认已经导入 np,pdimport numpy as npimport pandas as pd# 执行下面示例之前,最好先删除 .&#x2F;test.xlsx 文件 1.覆盖所有原有数据,只保留最后一份数据:123456# pandas:1.4.1 openpyxl:3.0.9# 删除文件原有
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-26 11:25" pubdate>
+              2022-06-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python/" class="category-chain-item">python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/pandas/">#pandas</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/06/26/%E7%94%A8pandas%E7%94%9F%E6%88%90excel%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%EF%BC%8C%E5%B9%B6%E8%B0%83%E6%95%B4excel%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%88%96%E6%A0%B7%E5%BC%8F/" target="_self">
           用pandas生成excel文件示例，并调整excel的格式或样式
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/27/%E7%94%A8pandas%E7%94%9F%E6%88%90excel%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%EF%BC%8C%E5%B9%B6%E8%B0%83%E6%95%B4excel%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%88%96%E6%A0%B7%E5%BC%8F/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/06/26/%E7%94%A8pandas%E7%94%9F%E6%88%90excel%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B%EF%BC%8C%E5%B9%B6%E8%B0%83%E6%95%B4excel%E7%9A%84%E6%A0%BC%E5%BC%8F%E6%88%96%E6%A0%B7%E5%BC%8F/" target="_self">
         <div>
           用pandas生成excel 当我们有特殊的需求时，比如要修改excel的行宽列宽，还有字体样式等等  需求示例 代码实现123456789101112131415161718192021222324252627282930313233343536# -*- coding: utf-8 -*-import pandas as pdfrom  datetime import datetime, ti
         </div>
@@ -256,8 +317,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-27 09:15" pubdate>
-              2022-06-27
+            <time datetime="2022-06-26 09:15" pubdate>
+              2022-06-26
             </time>
           </div>
         
@@ -370,7 +431,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/06/23/Python%20SQLAlchemy%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B%20models%20%E6%96%87%E4%BB%B6/" target="_self">
         <div>
-          ​ Python SQLAlchemy 自动生成模型 models 文件安装模块 pip3 install sqlacodegen  执行   sqlacodegen mysql+pymysql:&#x2F;&#x2F;root:&amp;#112;&amp;#97;&amp;#x73;&amp;#x73;&amp;#x77;&amp;#111;&amp;#x72;&amp;#100;&amp;#64;&amp;#x31;&amp;#x32;&amp;#x37;&amp;#x2e;&amp;#48;&amp;#x2
+          ​ Python SQLAlchemy 自动生成模型 models 文件安装模块 pip3 install sqlacodegen  执行   sqlacodegen mysql+pymysql:&#x2F;&#x2F;root:&amp;#112;&amp;#97;&amp;#115;&amp;#115;&amp;#x77;&amp;#111;&amp;#x72;&amp;#100;&amp;#x40;&amp;#49;&amp;#x32;&amp;#x37;&amp;#x2e;&amp;#x30;&amp;#4
         </div>
       </a>
 
