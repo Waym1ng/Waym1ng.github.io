@@ -240,6 +240,189 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/03/02/Python%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank">
+          Python实现通用装饰器
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/03/02/Python%E5%AE%9E%E7%8E%B0%E9%80%9A%E7%94%A8%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank">
+        <div>
+          12345678910from functools import wrapsdef decorator(func):    @wraps(func)    def inner(*args, **kwargs):				# 这里可以写你额外希望增加功能的代码                    return func(*args, **kwargs)    return inner
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-02 17:03" pubdate>
+              2020-03-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python%E5%8A%A0%E6%B2%B9%E9%B8%AD/" class="category-chain-item">python加油鸭</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python/">#python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/03/02/Python%E4%B8%AD%E5%BC%80%E5%90%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank">
+          Python中开启多线程的装饰器
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/03/02/Python%E4%B8%AD%E5%BC%80%E5%90%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E8%A3%85%E9%A5%B0%E5%99%A8/" target="_blank">
+        <div>
+          Python中开启多线程的装饰器12345678910111213141516171819202122232425262728293031323334353637import randomimport threadingimport timedef run_async(func):    def wrapper(*args, **kwargs):        thr &#x3D; threading.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-02 16:57" pubdate>
+              2020-03-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python%E5%8A%A0%E6%B2%B9%E9%B8%AD/" class="category-chain-item">python加油鸭</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python-thread-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">#python thread 多进程</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/03/02/Python%20%20%E7%94%A8flask_sockets%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0websocket%20%20%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0websocket%E6%9C%8D%E5%8A%A1%E7%AB%AF/" target="_blank">
+          Python  用flask_sockets模块实现websocket  自定义路由实现websocket服务端
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/03/02/Python%20%20%E7%94%A8flask_sockets%E6%A8%A1%E5%9D%97%E5%AE%9E%E7%8E%B0websocket%20%20%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B7%AF%E7%94%B1%E5%AE%9E%E7%8E%B0websocket%E6%9C%8D%E5%8A%A1%E7%AB%AF/" target="_blank">
+        <div>
+          flask_sockets模块的使用123可以自定义路由socket路由的访问地址为ws:&#x2F;&#x2F;localhost:端口&#x2F;自定义的地址如ws:&#x2F;&#x2F;localhost:5000&#x2F;echo  当创建一个ws的时候，接收到了数据，但是却想返回(send)到另外一个ws，这怎么办呢后端代码 123456789101112131415161718192021222324252627282930313233
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-03-02 16:49" pubdate>
+              2020-03-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python%E5%8A%A0%E6%B2%B9%E9%B8%AD/" class="category-chain-item">python加油鸭</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/python-websocket-socket-flask/">#python websocket socket flask</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2019/03/08/python%20%E7%AE%80%E5%8D%95%E7%9A%84%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3%E5%86%99%E7%9A%84)/" target="_blank">
           python 简单的音乐播放器(面向对象思想写的)
         </a>

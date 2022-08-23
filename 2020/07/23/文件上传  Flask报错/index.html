@@ -16,22 +16,22 @@
   <meta name="author" content="waymingz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="celery介绍什么是celery这次我们来介绍一下Python的一个第三方模块celery，那么celery是什么呢？  celery是一个灵活且可靠的，处理大量消息的分布式系统，可以在多个节点之间处理某个任务。 celery是一个专注于实时处理的任务队列，支持任务调度。 celery是开源的，有很多使用者。 celery完全基于Python语言编写。  所以celery是一个任务调度框架，">
+    <meta name="description" content="报错信息：TypeError: expected str, bytes or os.PathLike object,not FileStorage  上传一个文件 file 本来想通过open()来打开文件进行处理的，但是却报错了  123456789101112131415161718192021222324252627@app.route(&amp;#x27;&#x2F;getfile&amp;#x27;, met">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Celery 的用法介绍">
-<meta property="og:url" content="https://waym1ng.github.io/2020/08/18/Celery%20%E7%9A%84%E7%94%A8%E6%B3%95%E4%BB%8B%E7%BB%8D/index.html">
+<meta property="og:title" content="文件上传  Flask报错">
+<meta property="og:url" content="https://waym1ng.github.io/2020/07/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%20%20Flask%E6%8A%A5%E9%94%99/index.html">
 <meta property="og:site_name" content="MingMing&#39;blog">
-<meta property="og:description" content="celery介绍什么是celery这次我们来介绍一下Python的一个第三方模块celery，那么celery是什么呢？  celery是一个灵活且可靠的，处理大量消息的分布式系统，可以在多个节点之间处理某个任务。 celery是一个专注于实时处理的任务队列，支持任务调度。 celery是开源的，有很多使用者。 celery完全基于Python语言编写。  所以celery是一个任务调度框架，">
+<meta property="og:description" content="报错信息：TypeError: expected str, bytes or os.PathLike object,not FileStorage  上传一个文件 file 本来想通过open()来打开文件进行处理的，但是却报错了  123456789101112131415161718192021222324252627@app.route(&amp;#x27;&#x2F;getfile&amp;#x27;, met">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-18T09:35:35.000Z">
-<meta property="article:modified_time" content="2022-08-17T06:40:47.267Z">
+<meta property="article:published_time" content="2020-07-23T07:12:40.000Z">
+<meta property="article:modified_time" content="2022-08-23T03:40:05.470Z">
 <meta property="article:author" content="waymingz">
-<meta property="article:tag" content="python 数据库">
+<meta property="article:tag" content="python web">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Celery 的用法介绍 - MingMing&#39;blog</title>
+  <title>文件上传  Flask报错 - MingMing&#39;blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Celery 的用法介绍"></span>
+            <span id="subtitle" data-typed-text="文件上传  Flask报错"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-08-18 17:35" pubdate>
-          2020年8月18日 下午
+        <time datetime="2020-07-23 15:12" pubdate>
+          2020年7月23日 下午
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          538 字
+          2k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          5 分钟
+          17 分钟
         
       </span>
     
@@ -285,28 +285,35 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Celery 的用法介绍</h1>
+            <h1 style="display: none">文件上传  Flask报错</h1>
             
             
               <div class="markdown-body">
                 
                 <span id="more"></span>
 
-<h2 id="celery介绍"><a href="#celery介绍" class="headerlink" title="celery介绍"></a><strong>celery介绍</strong></h2><h3 id="什么是celery"><a href="#什么是celery" class="headerlink" title="什么是celery"></a><strong>什么是celery</strong></h3><p><strong>这次我们来介绍一下Python的一个第三方模块celery，那么celery是什么呢？</strong></p>
-<ul>
-<li><code>celery是一个灵活且可靠的，处理大量消息的分布式系统，可以在多个节点之间处理某个任务。</code></li>
-<li><code>celery是一个专注于实时处理的任务队列，支持任务调度。</code></li>
-<li><code>celery是开源的，有很多使用者。</code></li>
-<li><code>celery完全基于Python语言编写。</code></li>
+<h4 id="报错信息：TypeError-expected-str-bytes-or-os-PathLike-object-not-FileStorage"><a href="#报错信息：TypeError-expected-str-bytes-or-os-PathLike-object-not-FileStorage" class="headerlink" title="报错信息：TypeError: expected str, bytes or os.PathLike object,not FileStorage"></a>报错信息：TypeError: expected str, bytes or os.PathLike object,not FileStorage</h4><ul>
+<li> 上传一个文件 file 本来想通过open()来打开文件进行处理的，但是却报错了</li>
 </ul>
-<p><strong>所以celery是一个任务调度框架，类似于Apache的airflow，当然airflow也是基于Python语言编写。不过有一点需要注意，celery是用来调度任务的，它本身并不具备任务的存储功能，而我们说在调度任务的时候肯定是要把任务存起来的，因此在使用celery的时候还需要搭配一些具备存储、访问功能的工具，比如：消息队列、Redis缓存、数据库等等。官方推荐的是消息队列RabbitMQ，个人认为有些时候使用Redis也是不错的选择，当然我们都会介绍。</strong></p>
-<p><strong>那么celery都可以在哪些场景中使用呢？</strong></p>
-<ul>
-<li><code>异步任务：一些耗时的操作可以交给celery异步执行，而不用等着程序处理完才知道结果。比如：视频转码、邮件发送、消息推送等等。</code></li>
-<li><code>定时任务：比如定时推送消息、定时爬取数据、定时统计数据等等</code></li>
-</ul>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/traditional/p/11788756.html">这是一篇很详细的celery用法介绍</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/getfile&#x27;</span>, methods=[<span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">getfile</span>():<br>    request_data = request.files[<span class="hljs-string">&#x27;file&#x27;</span>]<br>    rsrcmgr = PDFResourceManager()<br>    retstr = io.StringIO()<br>    codec = <span class="hljs-string">&#x27;utf-8&#x27;</span><br>    laparams = LAParams()<br>    device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)<br>    fp = <span class="hljs-built_in">open</span>(request_data, <span class="hljs-string">&#x27;rb&#x27;</span>)<br>    interpreter = PDFPageInterpreter(rsrcmgr, device)<br>    password = <span class="hljs-string">&quot;&quot;</span><br>    maxpages = <span class="hljs-number">0</span><br>    caching = <span class="hljs-literal">True</span><br>    pagenos = <span class="hljs-built_in">set</span>()<br><br>    <span class="hljs-keyword">for</span> page <span class="hljs-keyword">in</span> PDFPage.get_pages(fp, pagenos, maxpages=maxpages,<br>                                  password=password,<br>                                  caching=caching,<br>                                  check_extractable=<span class="hljs-literal">True</span>):<br>        interpreter.process_page(page)<br><br>    text = retstr.getvalue()<br><br>    fp.close()<br>    device.close()<br>    retstr.close()<br><span class="hljs-keyword">return</span> text<br></code></pre></td></tr></table></figure>
 
+<ul>
+<li> 报错</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">line 27, <span class="hljs-keyword">in</span> getfile fp = open(request_data, <span class="hljs-string">&#x27;rb&#x27;</span>).decode(<span class="hljs-string">&quot;utf-8&quot;</span>) TypeError: expected str, bytes or os.PathLike object, not FileStorage<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li> 解决方案</li>
+</ul>
+<blockquote>
+<p>The <code>request.files[&#39;file&#39;]</code> is an instance of a <a target="_blank" rel="noopener" href="http://werkzeug.pocoo.org/docs/0.14/datastructures/#werkzeug.datastructures.FileStorage">FileStorage</a> class (see also <a target="_blank" rel="noopener" href="http://flask.pocoo.org/docs/0.12/api/#flask.Request.files">http://flask.pocoo.org/docs/0.12/api/#flask.Request.files</a>), so you can’t do the <code>fp = open(request_data, &#39;rb&#39;)</code>. The FileStorage object contains a <code>stream</code> attribute that should point to an open temporary file, and probably you can pass that to <code>PDFPage.get_pages()</code></p>
+</blockquote>
+<blockquote>
+<p>也就是说：Files [‘ file’]是 FileStorage 类的一个实例，所以不能执行 fp &#x3D; open (request _ data，‘ rb’)</p>
+<p>FileStorage 对象包含 <code>stream</code>  属性，该属性应该指向一个打开的临时文件，您可以将其传递给 PDFPage.get _ pages ()</p>
+</blockquote>
+<p> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/getfile&#x27;</span>, methods=[<span class="hljs-string">&#x27;POST&#x27;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">getfile</span>():<br>    file = request.files[<span class="hljs-string">&#x27;file&#x27;</span>]<br>    rsrcmgr = PDFResourceManager()<br>    retstr = io.StringIO()<br>    codec = <span class="hljs-string">&#x27;utf-8&#x27;</span><br>    laparams = LAParams()<br>    device = TextConverter(rsrcmgr, retstr, codec=codec, laparams=laparams)<br>    interpreter = PDFPageInterpreter(rsrcmgr, device)<br>    password = <span class="hljs-string">&quot;&quot;</span><br>    maxpages = <span class="hljs-number">0</span><br>    caching = <span class="hljs-literal">True</span><br>    pagenos = <span class="hljs-built_in">set</span>()<br><br>    <span class="hljs-keyword">for</span> page <span class="hljs-keyword">in</span> PDFPage.get_pages(file.stream, pagenos, maxpages=maxpages,<br>                                  password=password,<br>                                  caching=caching,<br>                                  check_extractable=<span class="hljs-literal">True</span>):<br>        interpreter.process_page(page)<br><br>    text = retstr.getvalue()<br><br>    device.close()<br>    retstr.close()<br><span class="hljs-keyword">return</span> text<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -339,7 +346,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/python-%E6%95%B0%E6%8D%AE%E5%BA%93/">#python 数据库</a>
+        <a href="/tags/python-web/">#python web</a>
       
     </div>
   
@@ -351,8 +358,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Celery 的用法介绍</div>
-      <div>https://waym1ng.github.io/2020/08/18/Celery 的用法介绍/</div>
+      <div>文件上传  Flask报错</div>
+      <div>https://waym1ng.github.io/2020/07/23/文件上传  Flask报错/</div>
     </div>
     <div class="license-meta">
       
@@ -364,7 +371,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2020年8月18日</div>
+          <div>2020年7月23日</div>
         </div>
       
       
@@ -394,9 +401,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/08/22/%E7%88%AC%E8%99%AB%E5%88%A9%E5%99%A8%20pyppeteer%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" title="爬虫利器 pyppeteer 使用技巧">
+                      <a href="/2020/07/23/%E8%AE%A4%E8%AF%86%20RESTful%20%E4%BB%80%E4%B9%88%E6%98%AFRESTful/" title="认识 RESTful 什么是RESTful">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">爬虫利器 pyppeteer 使用技巧</span>
+                        <span class="hidden-mobile">认识 RESTful 什么是RESTful</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -404,8 +411,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/07/23/RESTful%20%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95/" title="RESTful 设计方法">
-                        <span class="hidden-mobile">RESTful 设计方法</span>
+                      <a href="/2020/07/14/%E8%BF%9B%E5%85%A5%20Docker%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%20attach,ssh,nsenter,exec/" title="进入 Docker 容器的几种方式 attach,ssh,nsenter,exec">
+                        <span class="hidden-mobile">进入 Docker 容器的几种方式 attach,ssh,nsenter,exec</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
