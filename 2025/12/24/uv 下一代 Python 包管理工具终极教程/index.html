@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="waymingz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="🚀 uv: 下一代 Python 包管理工具终极教程欢迎来到 uv 的世界！uv 是一个用 Rust 编写的、快如闪电的 Python 包管理器和解析器。它旨在成为 pip、pip-tools 和 venv 的直接替代品，并提供无与伦比的性能。 本教程将带您全面了解 uv 的核心功能，并通过与传统 pip 的详细对比，助您轻松上手。  💡 核心优势：  极速 ⚡️：比 pip 和 pip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uv 下一代 Python 包管理工具终极教程">
+<meta property="og:url" content="https://waym1ng.github.io/2025/12/24/uv%20%E4%B8%8B%E4%B8%80%E4%BB%A3%20Python%20%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E7%BB%88%E6%9E%81%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="MingMing&#39;blog">
+<meta property="og:description" content="🚀 uv: 下一代 Python 包管理工具终极教程欢迎来到 uv 的世界！uv 是一个用 Rust 编写的、快如闪电的 Python 包管理器和解析器。它旨在成为 pip、pip-tools 和 venv 的直接替代品，并提供无与伦比的性能。 本教程将带您全面了解 uv 的核心功能，并通过与传统 pip 的详细对比，助您轻松上手。  💡 核心优势：  极速 ⚡️：比 pip 和 pip">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-24T07:32:13.000Z">
+<meta property="article:modified_time" content="2025-12-26T07:26:33.193Z">
+<meta property="article:author" content="waymingz">
+<meta property="article:tag" content="python uv">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>uv 下一代 Python 包管理工具终极教程 - MingMing&#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"waym1ng.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QaAc8EraW3qDuc3hldMvmw5p-gzGzoHsz","app_key":"oTgXIx2IwXcYJAPXLGPAdYJC","server_url":"https://qaac8era.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>明明的博客呀</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="uv 下一代 Python 包管理工具终极教程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-24 15:32" pubdate>
+          2025年12月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">uv 下一代 Python 包管理工具终极教程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+
+
+<h1 id="🚀-uv-下一代-Python-包管理工具终极教程"><a href="#🚀-uv-下一代-Python-包管理工具终极教程" class="headerlink" title="🚀 uv: 下一代 Python 包管理工具终极教程"></a>🚀 uv: 下一代 Python 包管理工具终极教程</h1><p>欢迎来到 <code>uv</code> 的世界！<code>uv</code> 是一个用 Rust 编写的、快如闪电的 Python 包管理器和解析器。它旨在成为 <code>pip</code>、<code>pip-tools</code> 和 <code>venv</code> 的直接替代品，并提供无与伦比的性能。</p>
+<p>本教程将带您全面了解 <code>uv</code> 的核心功能，并通过与传统 <code>pip</code> 的详细对比，助您轻松上手。</p>
+<blockquote>
+<p><strong>💡 核心优势：</strong></p>
+<ul>
+<li><p><strong>极速 ⚡️</strong>：比 <code>pip</code> 和 <code>pip-tools</code> 快 10-100 倍。</p>
+</li>
+<li><p><strong>节省空间 💾</strong>：通过全局缓存，避免重复下载和存储同一个包。</p>
+</li>
+<li><p><strong>一体化 📦</strong>：同时处理包安装、虚拟环境创建和依赖锁定。</p>
+</li>
+<li><p><strong>直接替代</strong>：与 <code>pip</code> 的命令高度兼容，学习成本低。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="📥-安装-uv"><a href="#📥-安装-uv" class="headerlink" title="📥 安装 uv"></a>📥 安装 uv</h2><p>首先，让我们将 <code>uv</code> 安装到您的系统中。</p>
+<p><strong>macOS 和 Linux</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">curl -LsSf [https:<span class="hljs-regexp">//</span>astral.sh<span class="hljs-regexp">/uv/i</span>nstall.sh](https:<span class="hljs-regexp">//</span>astral.sh<span class="hljs-regexp">/uv/i</span>nstall.sh) | sh<br></code></pre></td></tr></table></figure>
+
+<p><strong>Windows</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">powershell -c &quot;irm [<span class="hljs-string">https://astral.sh/uv/install.ps1</span>](<span class="hljs-link">https://astral.sh/uv/install.ps1</span>) | iex&quot;<br></code></pre></td></tr></table></figure>
+
+<p>安装完成后，通过运行 <code>uv --version</code> 来验证是否成功。</p>
+<h2 id="🆚-核心理念对比：uv-vs-pip"><a href="#🆚-核心理念对比：uv-vs-pip" class="headerlink" title="🆚 核心理念对比：uv vs. pip"></a>🆚 核心理念对比：uv vs. pip</h2><p>理解 <code>uv</code> 的强大之处，关键在于其<strong>全局缓存</strong>机制。</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>特性</strong></th>
+<th align="left"><strong>uv</strong></th>
+<th align="left"><strong>pip + venv</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>包存储</strong></td>
+<td align="left">全局统一缓存，多项目通过<strong>链接</strong>共享</td>
+<td align="left">每个虚拟环境都<strong>复制</strong>一份完整的包文件</td>
+</tr>
+<tr>
+<td align="left"><strong>磁盘占用</strong></td>
+<td align="left"><strong>极低</strong>。无论多少项目使用，同一个包只存一份。</td>
+<td align="left"><strong>较高</strong>。项目越多，重复的包越多，占用空间越大。</td>
+</tr>
+<tr>
+<td align="left"><strong>安装速度</strong></td>
+<td align="left">首次安装后，后续安装几乎是瞬时的（无需下载）。</td>
+<td align="left">每个新环境都需要重新下载或从本地缓存复制。</td>
+</tr>
+<tr>
+<td align="left"><strong>环境创建</strong></td>
+<td align="left">内置 <code>uv venv</code> 命令，速度极快。</td>
+<td align="left">使用 Python 内置的 <code>venv</code> 模块，速度较慢。</td>
+</tr>
+</tbody></table>
+<h2 id="🛠️-uv-help-核心命令详解"><a href="#🛠️-uv-help-核心命令详解" class="headerlink" title="🛠️ uv --help 核心命令详解"></a>🛠️ <code>uv --help</code> 核心命令详解</h2><p><code>uv</code> 的许多命令都封装在 <code>uv pip</code> 子命令下，以保持与 <code>pip</code> 的兼容性。</p>
+<h3 id="1-虚拟环境管理-uv-venv"><a href="#1-虚拟环境管理-uv-venv" class="headerlink" title="1. 虚拟环境管理 (uv venv)"></a>1. 虚拟环境管理 (<code>uv venv</code>)</h3><p><code>uv</code> 内置了超高速的虚拟环境创建工具。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv venv</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>python -m venv .venv</code></p>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-comment"># 创建一个名为 .venv 的虚拟环境</span><br>uv venv<br><br><span class="hljs-comment"># 指定 Python 解释器版本创建</span><br>uv venv <span class="hljs-comment">--python 3.11</span><br><br><span class="hljs-comment"># 激活虚拟环境 (与传统方式相同)</span><br><span class="hljs-comment"># macOS / Linux</span><br>source .venv/bin/<span class="hljs-built_in">activate</span><br><span class="hljs-comment"># Windows</span><br>.venv\Scripts\<span class="hljs-built_in">activate</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-安装包-uv-pip-install"><a href="#2-安装包-uv-pip-install" class="headerlink" title="2. 安装包 (uv pip install)"></a>2. 安装包 (<code>uv pip install</code>)</h3><p>这是最常用的命令，<code>uv</code> 在此展现了惊人的速度。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv pip install &lt;package&gt;</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>pip install &lt;package&gt;</code></p>
+</li>
+</ul>
+<p><strong>常用参数示例：</strong></p>
+<ul>
+<li><p><strong>安装单个或多个包</strong></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 安装 FastAPI 和 requests</span><br>uv pip <span class="hljs-keyword">install</span> <span class="hljs-string">&quot;fastapi[all]&quot;</span> requests<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装指定版本</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># 安装 0.109.x 版本的 fastapi</span><br><span class="hljs-attribute">uv</span> pip install <span class="hljs-string">&quot;fastapi&lt;0.110&quot;</span><br><br><span class="hljs-comment"># 安装特定版本的 httpx</span><br><span class="hljs-attribute">uv</span> pip install httpx==<span class="hljs-number">0</span>.<span class="hljs-number">27</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>从 <code>requirements.txt</code> 文件安装 (<code>-r, --requirement</code>)</strong></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 从 requirements.txt 安装所有依赖</span><br>uv pip <span class="hljs-keyword">install</span> -r requirements.txt<br><br><span class="hljs-comment"># 从多个文件安装</span><br>uv pip <span class="hljs-keyword">install</span> -r requirements.txt -r requirements-dev.txt<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装可编辑包 (<code>-e, --editable</code>)</strong> (用于本地开发)</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 将当前目录作为一个可编辑包安装</span><br>uv pip <span class="hljs-keyword">install</span> -e .<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-卸载包-uv-pip-uninstall"><a href="#3-卸载包-uv-pip-uninstall" class="headerlink" title="3. 卸载包 (uv pip uninstall)"></a>3. 卸载包 (<code>uv pip uninstall</code>)</h3><p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv pip uninstall &lt;package&gt;</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>pip uninstall &lt;package&gt;</code></p>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 卸载 fastapi</span><br><span class="hljs-attribute">uv</span> pip uninstall fastapi<br><br><span class="hljs-comment"># 从文件中卸载所有包</span><br>uv pip uninstall -r requirements.txt<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-查看已安装的包-uv-pip-list"><a href="#4-查看已安装的包-uv-pip-list" class="headerlink" title="4. 查看已安装的包 (uv pip list)"></a>4. 查看已安装的包 (<code>uv pip list</code>)</h3><p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv pip list</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>pip list</code></p>
+</li>
+</ul>
+<p><strong>常用参数示例：</strong></p>
+<ul>
+<li><p><strong>标准列表</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">uv pip list</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>排除可编辑包 (<code>--exclude-editable</code>)</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">uv pip list <span class="hljs-comment">--exclude-editable</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5-生成依赖列表-uv-pip-freeze"><a href="#5-生成依赖列表-uv-pip-freeze" class="headerlink" title="5. 生成依赖列表 (uv pip freeze)"></a>5. 生成依赖列表 (<code>uv pip freeze</code>)</h3><p>用于生成 <code>requirements.txt</code> 文件。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv pip freeze</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>pip freeze</code></p>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># 将当前环境的依赖输出到 requirements.txt<br>uv pip <span class="hljs-keyword">freeze</span> &gt; requirements.txt<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-同步环境-uv-pip-sync-⭐"><a href="#6-同步环境-uv-pip-sync-⭐" class="headerlink" title="6. 同步环境 (uv pip sync) ⭐"></a>6. 同步环境 (<code>uv pip sync</code>) ⭐</h3><p>这是 <code>uv</code> 的一个<strong>杀手级功能</strong>，它能确保你的虚拟环境与 <code>requirements.txt</code> 文件<strong>完全一致</strong>。它会自动安装缺失的包，并<strong>移除</strong>环境中存在但文件中没有的包。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv pip sync requirements.txt</code></p>
+</li>
+<li><p><strong>传统</strong>: 无直接命令。需要先 <code>pip install -r requirements.txt</code>，然后手动对比并卸载多余的包。</p>
+</li>
+</ul>
+<p><strong>示例：</strong><br>假设 <code>requirements.txt</code> 内容为：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">fastapi</span><span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-number">0.109</span>.<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<p>而你的环境中还安装了 <code>requests</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行同步命令</span><br>uv pip <span class="hljs-built_in">sync</span> requirements.txt<br><br><span class="hljs-comment"># 结果：uv 会自动卸载 requests，因为文件中没有它</span><br><span class="hljs-comment"># Uninstalled 1 package: requests</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="7-清理缓存-uv-cache-clean"><a href="#7-清理缓存-uv-cache-clean" class="headerlink" title="7. 清理缓存 (uv cache clean)"></a>7. 清理缓存 (<code>uv cache clean</code>)</h3><p>管理 <code>uv</code> 的全局缓存。</p>
+<p><strong>对比</strong></p>
+<ul>
+<li><p><strong>uv</strong>: <code>uv cache clean</code></p>
+</li>
+<li><p><strong>传统</strong>: <code>pip cache purge</code></p>
+</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-comment"># 清理所有未使用的缓存数据</span><br>uv <span class="hljs-keyword">cache </span>clean<br></code></pre></td></tr></table></figure>
+
+<h2 id="🌀-完整项目工作流示例"><a href="#🌀-完整项目工作流示例" class="headerlink" title="🌀 完整项目工作流示例"></a>🌀 完整项目工作流示例</h2><p>让我们用 <code>uv</code> 从零开始搭建一个简单的 FastAPI 项目。</p>
+<p><strong>1. 创建项目并初始化环境</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> my-fastapi-app<br><span class="hljs-built_in">cd</span> my-fastapi-app<br><br><span class="hljs-comment"># 创建并激活虚拟环境</span><br>uv venv<br><span class="hljs-built_in">source</span> .venv/bin/activate<br></code></pre></td></tr></table></figure>
+
+<p><strong>2. 安装依赖</strong></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake"><span class="hljs-comment"># 安装 FastAPI, 包含所有可选依赖（如 uvicorn）</span><br>uv pip <span class="hljs-keyword">install</span> <span class="hljs-string">&quot;fastapi[all]&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>3. 编写应用代码</strong><br>创建一个 <code>main.py</code> 文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># main.py</span><br><span class="hljs-keyword">from</span> fastapi <span class="hljs-keyword">import</span> FastAPI<br><br>app = FastAPI()<br><br><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/&quot;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">read_root</span>():<br>    <span class="hljs-keyword">return</span> &#123;<span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Hello, World with uv and FastAPI! 🚀&quot;</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>4. 运行开发服务器</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada"># 使用 uvicorn 启动应用，<span class="hljs-comment">--reload 开启热重载</span><br>uvicorn main:app <span class="hljs-comment">--reload</span><br></code></pre></td></tr></table></figure>
+
+<p>现在，在浏览器中访问 <code>http://127.0.0.1:8000</code> 就可以看到 FastAPI 应用了。</p>
+<p><strong>5. 生成 <code>requirements.txt</code></strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"># 将当前环境的依赖输出到 requirements.txt<br>uv pip <span class="hljs-keyword">freeze</span> &gt; requirements.txt<br></code></pre></td></tr></table></figure>
+
+<p>文件内容会包含 <code>fastapi</code>、<code>uvicorn</code> 及其所有子依赖。</p>
+<p><strong>6. 体验 <code>sync</code> 功能</strong><br>首先，我们手动安装一个额外的包。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmake">uv pip <span class="hljs-keyword">install</span> requests<br></code></pre></td></tr></table></figure>
+
+<p>现在，我们的环境比 <code>requirements.txt</code> 多了一个 <code>requests</code> 包。</p>
+<p>接着，我们使用 <code>sync</code> 来恢复环境的纯净状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">uv pip <span class="hljs-built_in">sync</span> requirements.txt<br></code></pre></td></tr></table></figure>
+
+<p><code>uv</code> 会智能地发现并卸载 <code>requests</code>，让环境与依赖文件严格保持一致。</p>
+<h2 id="✨-结语"><a href="#✨-结语" class="headerlink" title="✨ 结语"></a>✨ 结语</h2><p><code>uv</code> 不仅仅是一个更快的 <code>pip</code>，它通过现代化的设计理念，为 Python 开发者带来了更高效、更整洁、更愉悦的包管理体验。从创建环境到安装、同步依赖，<code>uv</code> 的一体化解决方案无疑是 Python 开发生态的一大步进。</p>
+<p>希望本教程能帮助您顺利地将 <code>uv</code> 集成到您的日常工作中！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python%E5%8A%A0%E6%B2%B9%E9%B8%AD/" class="category-chain-item">python加油鸭</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python-uv/">#python uv</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>uv 下一代 Python 包管理工具终极教程</div>
+      <div>https://waym1ng.github.io/2025/12/24/uv 下一代 Python 包管理工具终极教程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>waymingz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月24日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/25/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BVite%E5%88%9B%E5%BB%BAReact%E9%A1%B9%E7%9B%AE/" title="快速上手Vite创建React项目">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">快速上手Vite创建React项目</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/21/FLUX.1%20Kontext%20%E6%8F%90%E7%A4%BA%E8%AF%8D%E7%94%9F%E6%88%90%E5%8A%A9%E6%89%8B%20%20AI%E5%9B%BE%E5%83%8F%E7%BC%96%E8%BE%91%E6%8F%90%E7%A4%BA%E8%AF%8D%E4%B8%93%E5%AE%B6/" title="FLUX.1 Kontext 提示词生成助手">
+                        <span class="hidden-mobile">FLUX.1 Kontext 提示词生成助手</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"QaAc8EraW3qDuc3hldMvmw5p-gzGzoHsz","appKey":"oTgXIx2IwXcYJAPXLGPAdYJC","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1020 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/logo.png">
+  <link rel="icon" href="/img/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="waymingz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一份 面向 FastAPI 的、工程级别的对比结论，站在异步架构 &#x2F; 并发 &#x2F; 生产可维护性角度来选型。  一句话结论（先给结论） ✅ FastAPI 项目：优先选择 httpx❌ 不要在 FastAPI 的接口里直接用 requests⚠️ aiohttp 可用，但仅在特定场景下才值得选  排序（FastAPI 场景）： 1httpx   &gt;   aiohttp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requests vs aiohttp vs httpx python请求库对比 配合fastapi使用">
+<meta property="og:url" content="https://waym1ng.github.io/2025/12/26/requests%20vs%20aiohttp%20vs%20httpx%20python%E8%AF%B7%E6%B1%82%E5%BA%93%E5%AF%B9%E6%AF%94%20%E9%85%8D%E5%90%88fastapi%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="MingMing&#39;blog">
+<meta property="og:description" content="一份 面向 FastAPI 的、工程级别的对比结论，站在异步架构 &#x2F; 并发 &#x2F; 生产可维护性角度来选型。  一句话结论（先给结论） ✅ FastAPI 项目：优先选择 httpx❌ 不要在 FastAPI 的接口里直接用 requests⚠️ aiohttp 可用，但仅在特定场景下才值得选  排序（FastAPI 场景）： 1httpx   &gt;   aiohttp">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-26T06:32:13.000Z">
+<meta property="article:modified_time" content="2025-12-26T07:20:08.195Z">
+<meta property="article:author" content="waymingz">
+<meta property="article:tag" content="python fastapi">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>requests vs aiohttp vs httpx python请求库对比 配合fastapi使用 - MingMing&#39;blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"waym1ng.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"QaAc8EraW3qDuc3hldMvmw5p-gzGzoHsz","app_key":"oTgXIx2IwXcYJAPXLGPAdYJC","server_url":"https://qaac8era.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>明明的博客呀</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="requests vs aiohttp vs httpx python请求库对比 配合fastapi使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-12-26 14:32" pubdate>
+          2025年12月26日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">requests vs aiohttp vs httpx python请求库对比 配合fastapi使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
+
+<p>一份 <strong>面向 FastAPI 的、工程级别的对比结论</strong>，站在<strong>异步架构 &#x2F; 并发 &#x2F; 生产可维护性</strong>角度来选型。</p>
+<hr>
+<h1 id="一句话结论（先给结论）"><a href="#一句话结论（先给结论）" class="headerlink" title="一句话结论（先给结论）"></a>一句话结论（先给结论）</h1><blockquote>
+<p>✅ <strong>FastAPI 项目：优先选择 <code>httpx</code></strong><br>❌ <strong>不要在 FastAPI 的接口里直接用 <code>requests</code></strong><br>⚠️ <code>aiohttp</code> 可用，但仅在特定场景下才值得选</p>
+</blockquote>
+<p>排序（FastAPI 场景）：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">httpx</span>   &gt;   aiohttp   &gt;&gt;&gt;   requests<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="一、三者核心定位对比"><a href="#一、三者核心定位对比" class="headerlink" title="一、三者核心定位对比"></a>一、三者核心定位对比</h1><table>
+<thead>
+<tr>
+<th>库</th>
+<th>核心定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>requests</strong></td>
+<td>同步 HTTP 客户端（经典库，非异步）</td>
+</tr>
+<tr>
+<td><strong>aiohttp</strong></td>
+<td>早期异步 HTTP + Web 框架</td>
+</tr>
+<tr>
+<td><strong>httpx</strong></td>
+<td>现代化 requests 兼容的同步 + 异步 HTTP 客户端</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="二、与-FastAPI-的「本质兼容性」"><a href="#二、与-FastAPI-的「本质兼容性」" class="headerlink" title="二、与 FastAPI 的「本质兼容性」"></a>二、与 FastAPI 的「本质兼容性」</h1><p>FastAPI 本质是：</p>
+<ul>
+<li>ASGI</li>
+<li>asyncio</li>
+<li>高并发、非阻塞 I&#x2F;O</li>
+</ul>
+<h3 id="是否“天然适配”-FastAPI？"><a href="#是否“天然适配”-FastAPI？" class="headerlink" title="是否“天然适配” FastAPI？"></a>是否“天然适配” FastAPI？</h3><table>
+<thead>
+<tr>
+<th>库</th>
+<th>是否阻塞事件循环</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>requests</td>
+<td>❌ 是</td>
+<td><strong>严重不适配</strong></td>
+</tr>
+<tr>
+<td>aiohttp</td>
+<td>✅ 否</td>
+<td>适配</td>
+</tr>
+<tr>
+<td>httpx</td>
+<td>✅ 否</td>
+<td><strong>完美适配</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="三、详细对比表（工程级）"><a href="#三、详细对比表（工程级）" class="headerlink" title="三、详细对比表（工程级）"></a>三、详细对比表（工程级）</h1><h2 id="1️⃣-并发-x2F-异步能力"><a href="#1️⃣-并发-x2F-异步能力" class="headerlink" title="1️⃣ 并发 &#x2F; 异步能力"></a>1️⃣ 并发 &#x2F; 异步能力</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>requests</th>
+<th>aiohttp</th>
+<th>httpx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>异步支持</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>asyncio 原生</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>async&#x2F;await</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>FastAPI 并发友好</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<p>🚨 <strong>FastAPI 中用 requests &#x3D; 阻塞 worker</strong></p>
+<hr>
+<h2 id="2️⃣-API-设计-amp-可维护性"><a href="#2️⃣-API-设计-amp-可维护性" class="headerlink" title="2️⃣ API 设计 &amp; 可维护性"></a>2️⃣ API 设计 &amp; 可维护性</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>requests</th>
+<th>aiohttp</th>
+<th>httpx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API 易用性</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>requests 迁移成本</td>
+<td>原生</td>
+<td>❌</td>
+<td>✅ 100%</td>
+</tr>
+<tr>
+<td>心智负担</td>
+<td>极低</td>
+<td>偏高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>代码可读性</td>
+<td>高</td>
+<td>中</td>
+<td>高</td>
+</tr>
+</tbody></table>
+<h3 id="示例对比"><a href="#示例对比" class="headerlink" title="示例对比"></a>示例对比</h3><h4 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">requests.get(url)<br></code></pre></td></tr></table></figure>
+
+<h4 id="aiohttp"><a href="#aiohttp" class="headerlink" title="aiohttp"></a>aiohttp</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:<br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.get(url) <span class="hljs-keyword">as</span> resp:<br>        data = <span class="hljs-keyword">await</span> resp.json()<br></code></pre></td></tr></table></figure>
+
+<h4 id="httpx"><a href="#httpx" class="headerlink" title="httpx"></a>httpx</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> httpx.AsyncClient() <span class="hljs-keyword">as</span> client:<br>    r = <span class="hljs-keyword">await</span> client.get(url)<br>    data = r.json()<br></code></pre></td></tr></table></figure>
+
+<p>👉 <strong>httpx &#x3D; requests + async</strong></p>
+<hr>
+<h2 id="3️⃣-FastAPI-官方生态支持"><a href="#3️⃣-FastAPI-官方生态支持" class="headerlink" title="3️⃣ FastAPI 官方生态支持"></a>3️⃣ FastAPI 官方生态支持</h2><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>requests</th>
+<th>aiohttp</th>
+<th>httpx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastAPI 官方推荐</td>
+<td>❌</td>
+<td>⚠️</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>ASGI 集成测试</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Starlette 原生支持</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<h3 id="FastAPI-官方测试方式（httpx）"><a href="#FastAPI-官方测试方式（httpx）" class="headerlink" title="FastAPI 官方测试方式（httpx）"></a>FastAPI 官方测试方式（httpx）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> httpx <span class="hljs-keyword">import</span> AsyncClient<br><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> AsyncClient(app=app, base_url=<span class="hljs-string">&quot;http://test&quot;</span>) <span class="hljs-keyword">as</span> ac:<br>    res = <span class="hljs-keyword">await</span> ac.get(<span class="hljs-string">&quot;/ping&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>⚠️ <strong>aiohttp 无等价能力</strong></p>
+<hr>
+<h2 id="4️⃣-性能-amp-稳定性（真实生产）"><a href="#4️⃣-性能-amp-稳定性（真实生产）" class="headerlink" title="4️⃣ 性能 &amp; 稳定性（真实生产）"></a>4️⃣ 性能 &amp; 稳定性（真实生产）</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>requests</th>
+<th>aiohttp</th>
+<th>httpx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高并发</td>
+<td>❌</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>TLS 性能</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>HTTP&#x2F;2</td>
+<td>❌</td>
+<td>⚠️</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>连接池</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>aiohttp 理论性能略高<br><strong>但 httpx 的差距 &lt; 5%，生产无感</strong></p>
+</blockquote>
+<hr>
+<h2 id="5️⃣-错误处理-amp-工程能力"><a href="#5️⃣-错误处理-amp-工程能力" class="headerlink" title="5️⃣ 错误处理 &amp; 工程能力"></a>5️⃣ 错误处理 &amp; 工程能力</h2><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>requests</th>
+<th>aiohttp</th>
+<th>httpx</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>异常体系</td>
+<td>简单</td>
+<td>复杂</td>
+<td>清晰</td>
+</tr>
+<tr>
+<td>Timeout 粒度</td>
+<td>粗</td>
+<td>细</td>
+<td><strong>极细</strong></td>
+</tr>
+<tr>
+<td>重试策略</td>
+<td>❌</td>
+<td>手写</td>
+<td>易封装</td>
+</tr>
+<tr>
+<td>类型提示</td>
+<td>一般</td>
+<td>一般</td>
+<td><strong>优秀</strong></td>
+</tr>
+</tbody></table>
+<h3 id="httpx-的-timeout-控制"><a href="#httpx-的-timeout-控制" class="headerlink" title="httpx 的 timeout 控制"></a>httpx 的 timeout 控制</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">timeout = httpx.Timeout(<br>    connect=<span class="hljs-number">5.0</span>,<br>    read=<span class="hljs-number">10.0</span>,<br>    write=<span class="hljs-number">5.0</span>,<br>    pool=<span class="hljs-number">5.0</span>,<br>)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6️⃣-在-FastAPI-中的「正确姿势」"><a href="#6️⃣-在-FastAPI-中的「正确姿势」" class="headerlink" title="6️⃣ 在 FastAPI 中的「正确姿势」"></a>6️⃣ 在 FastAPI 中的「正确姿势」</h2><h3 id="❌-错误示例（requests）"><a href="#❌-错误示例（requests）" class="headerlink" title="❌ 错误示例（requests）"></a>❌ 错误示例（requests）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/data&quot;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">data</span>():<br>    <span class="hljs-keyword">return</span> requests.get(url).json()<br></code></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<ul>
+<li>阻塞 event loop</li>
+<li>QPS 急剧下降</li>
+<li>worker 被卡死</li>
+</ul>
+<hr>
+<h3 id="⚠️-勉强可用（aiohttp）"><a href="#⚠️-勉强可用（aiohttp）" class="headerlink" title="⚠️ 勉强可用（aiohttp）"></a>⚠️ 勉强可用（aiohttp）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/data&quot;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">data</span>():<br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:<br>        <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.get(url) <span class="hljs-keyword">as</span> resp:<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> resp.json()<br></code></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<ul>
+<li>Session 不好统一管理</li>
+<li>API 风格割裂</li>
+</ul>
+<hr>
+<h3 id="✅-正确姿势（httpx）"><a href="#✅-正确姿势（httpx）" class="headerlink" title="✅ 正确姿势（httpx）"></a>✅ 正确姿势（httpx）</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">client = httpx.AsyncClient(timeout=<span class="hljs-number">10</span>)<br><br><span class="hljs-meta">@app.get(<span class="hljs-params"><span class="hljs-string">&quot;/data&quot;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">data</span>():<br>    resp = <span class="hljs-keyword">await</span> client.get(url)<br>    <span class="hljs-keyword">return</span> resp.json()<br></code></pre></td></tr></table></figure>
+
+<p>👉 <strong>推荐：全局 AsyncClient + 生命周期管理</strong></p>
+<hr>
+<h2 id="7️⃣-什么时候选-aiohttp？"><a href="#7️⃣-什么时候选-aiohttp？" class="headerlink" title="7️⃣ 什么时候选 aiohttp？"></a>7️⃣ 什么时候选 aiohttp？</h2><p>只有这几种情况：</p>
+<ul>
+<li>已有大量 aiohttp 代码</li>
+<li>你需要 aiohttp.web 自带服务端</li>
+<li>你在写爬虫 &#x2F; socket 级别控制</li>
+<li>极端追求性能（差距很小）</li>
+</ul>
+<p>否则 ❌ 不推荐新项目选 aiohttp</p>
+<hr>
+<h1 id="四、最终选型建议"><a href="#四、最终选型建议" class="headerlink" title="四、最终选型建议"></a>四、最终选型建议</h1><h2 id="✅-FastAPI-项目标准答案"><a href="#✅-FastAPI-项目标准答案" class="headerlink" title="✅ FastAPI 项目标准答案"></a>✅ FastAPI 项目标准答案</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FastAPI 调用第三方 API</td>
+<td><strong>httpx.AsyncClient</strong></td>
+</tr>
+<tr>
+<td>微服务间调用</td>
+<td><strong>httpx</strong></td>
+</tr>
+<tr>
+<td>FastAPI 单元 &#x2F; 集成测试</td>
+<td><strong>httpx</strong></td>
+</tr>
+<tr>
+<td>同步脚本</td>
+<td>requests &#x2F; httpx</td>
+</tr>
+<tr>
+<td>老 aiohttp 项目</td>
+<td>aiohttp</td>
+</tr>
+</tbody></table>
+<hr>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/python%E5%8A%A0%E6%B2%B9%E9%B8%AD/" class="category-chain-item">python加油鸭</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/python-fastapi/">#python fastapi</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>requests vs aiohttp vs httpx python请求库对比 配合fastapi使用</div>
+      <div>https://waym1ng.github.io/2025/12/26/requests vs aiohttp vs httpx python请求库对比 配合fastapi使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>waymingz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年12月26日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/12/26/Python%20%E6%89%93%E5%8C%85%E6%88%90%20EXE%20%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F%EF%BC%9A%E7%94%A8%20Nuitka%EF%BC%8C%E5%81%9A%E4%B8%80%E4%B8%AA%E7%9C%9F%E6%AD%A3%E5%83%8F%E2%80%9C%E8%BD%AF%E4%BB%B6%E2%80%9D%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="Python 打包成 EXE 的正确方式：用 Nuitka，做一个真正像`软件`的程序">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python 打包成 EXE 的正确方式：用 Nuitka，做一个真正像`软件`的程序</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/25/React%2018%20%E5%89%8D%E7%AB%AF%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%8A%80%E6%9C%AF%E6%A0%88%E6%B8%85%E5%8D%95%EF%BC%882025%E7%89%88%EF%BC%89/" title="React 18 前端最佳实践技术栈（2025）">
+                        <span class="hidden-mobile">React 18 前端最佳实践技术栈（2025）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"QaAc8EraW3qDuc3hldMvmw5p-gzGzoHsz","appKey":"oTgXIx2IwXcYJAPXLGPAdYJC","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      京ICP证123456号
+    </a>
+  </span>
+  
+    
+      <span>
+        <a
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12345678"
+          rel="nofollow noopener"
+          class="beian-police"
+          target="_blank"
+        >
+          
+            <span style="visibility: hidden; width: 0">|</span>
+            <img src="/img/police_beian.png" srcset="/img/loading.gif" lazyload alt="police-icon"/>
+          
+          <span>京公网安备12345678号</span>
+        </a>
+      </span>
+    
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
